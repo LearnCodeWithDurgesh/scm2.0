@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This is services page</h1>
+    <hr />
+    <!-- using fragment -->
+    <div th:replace="~{base :: parent(~{::.third_content})}">
+      <section id="main_content">
+        <h1>This is Dyanmic services passed to base parent</h1>
+      </section>
+      <section id="second_content">
+        <h1>This is second content</h1>
+      </section>
+      <section class="third_content">
+        <h1>This is third content</h1>
+      </section>
+    </div>
+  </body>
+</html>
