@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{})}">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+  
+    <title>
+      Services
+    </title>
   </head>
   <body>
-    <h1>This is services page</h1>
-    <hr />
-    <!-- using fragment -->
-    <div th:replace="~{base :: parent(~{::.third_content})}">
-      <section id="main_content">
-        <h1>This is Dyanmic services passed to base parent</h1>
-      </section>
-      <section id="second_content">
-        <h1>This is second content</h1>
-      </section>
-      <section class="third_content">
-        <h1>This is third content</h1>
-      </section>
-    </div>
+    <section id="content">
+      <h1>Welcome to services page</h1>
+      <h2>Services offered by SCM</h2>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolore assumenda rerum harum mollitia incidunt nesciunt dignissimos esse dicta reprehenderit quam, quisquam aspernatur enim consequatur accusamus, minima alias odit ducimus.<10></10>
+    </section>
+
   </body>
 </html>

@@ -1,48 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+    <title>Home page</title>
   </head>
   <body>
-    <div
-      class="bg-gray-200 w-1/2 p-4 flex flex-col justify-center items-center space-y-3 mx-auto mt-4"
-    >
-      <h1 class="text-2xl font-bold" data-th-text="${name}">
-        Welcome to home page
-      </h1>
-      <p class="text-xl text-gray-700">
-        Youtube Channel : <span data-th-text="${youtubeChannel}"></span>
+    <div id="content">
+      <h1>Welcome to home page</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+        ratione!
       </p>
-      <p>Gihub Repo Link : <span th:text="${githubRepo}"> </span></p>
-
-      <a data-th-href="${githubRepo}">Click here to open</a>
-
-      <p class="text-gray-600">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam
-        eligendi id consectetur, expedita quo reiciendis veritatis voluptatibus
-        non recusandae accusantium laboriosam dolore nulla ut architecto et
-        nostrum. Debitis commodi optio maxime minima, delectus rerum enim
-        expedita beatae, rem nam quos adipisci incidunt, dolorum blanditiis
-        sequi minus voluptates. Expedita, veniam vel!
-      </p>
-
-      <div>
-        <button
-          class="px-3 py-3 rounded bg-blue-700 text-white hover:bg-blue-600"
-        >
-          Click Here
-        </button>
-      </div>
     </div>
-    <!-- flow bite content -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script>
+      console.log("Home page");
+    </script>
   </body>
 </html>
