@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html
+  class="light"
   lang="en"
   th:fragment="parent(content,title,script)"
   xmlns:th="http://www.thymeleaf.org"
@@ -13,21 +14,18 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
       rel="stylesheet"
     />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
-  <body>
+  <body class="dark:bg-gray-900 dark:text-white">
     <!-- commona header -->
-
-    <ul class="p-4">
-      <li>
-        <a data-th-href="@{'/home'}">Home</a>
-      </li>
-      <li>
-        <a data-th-href="@{'/services'}">Services</a>
-      </li>
-      <li>
-        <a data-th-href="@{'/about'}">About</a>
-      </li>
-    </ul>
+    <div data-th-replace="navbar :: navbar"></div>
 
     <!-- main content -->
     <div class="p-4">
@@ -39,6 +37,7 @@
     <footer class="p-4">Footer: Learn Code With Durgesh</footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script data-th-src="@{'/js/script.js'}"></script>
     <th:block data-th-replace="${script}"></th:block>
   </body>
 </html>
