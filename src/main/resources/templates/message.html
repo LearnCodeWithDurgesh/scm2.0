@@ -2,7 +2,7 @@
   data-th-if="${session.message}"
   data-th-object="${session.message}"
   data-th-fragment="messagebox"
-  data-th-classappend="${'text-'+'{type}'+'-800 border border-*{type}-300 rounded-lg bg-*{type}-50 dark:bg-gray-800 dark:text-*{type}-400 dark:border-*{type}-800'}"
+  data-th-classappend="*{'text-'+type+'-800 border border-'+type+'-300 rounded-lg bg-'+type+'-50 dark:bg-gray-800 dark:text-'+type+'-400 dark:border-'+type+'-800'}"
   class="flex items-center p-4 mb-4 text-sm"
   role="alert"
 >
@@ -21,4 +21,6 @@
   <div>
     <span data-th-text="*{content}"></span>
   </div>
+
+  <th:block th:text="${@sessionHelper.removeMessage()}"></th:block>
 </div>
