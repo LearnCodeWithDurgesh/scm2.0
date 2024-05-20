@@ -28,7 +28,16 @@
   </head>
   <body class="dark:bg-gray-900 bg-gray-100 dark:text-white">
     <!-- commona header -->
-    <div data-th-replace="navbar :: navbar"></div>
+
+    <!--  user is logged in : navbar -->
+    <div th:if="${loggedInUser}">
+      <div data-th-replace="~{user/user_navbar::user-navbar}"></div>
+    </div>
+
+    <!-- user is not logged : navbar -->
+    <div th:unless="${loggedInUser}">
+      <div data-th-replace="~{navbar :: navbar}"></div>
+    </div>
 
     <!-- main content -->
     <div class="p-4">

@@ -64,13 +64,13 @@ public class PageController {
         return new String("contact");
     }
 
+    // this is showing login page
     @GetMapping("/login")
     public String login() {
         return new String("login");
     }
 
-    
-
+    // registration page
     @GetMapping("/register")
     public String register(Model model) {
 

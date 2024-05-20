@@ -1,11 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title data-th-text="${loggedInUser.name}+' |  SCM'">Profile Page</title>
   </head>
   <body>
-    <h1>This is user profile page</h1>
+    <div id="content">
+      <!-- sidebar -->
+
+      <!-- user is logged in : sidebar -->
+
+      <div th:if="${loggedInUser}">
+        <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+      </div>
+
+      <div class="sm:pl-64 pt-20" style="height: 1000px">
+        <div class="flex justify-center flex-col items-center">
+          <h1 class="text-5xl">Welcome to Profile page</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur, ratione!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      console.log("this is profile page");
+    </script>
   </body>
 </html>
