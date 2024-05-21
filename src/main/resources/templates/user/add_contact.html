@@ -23,13 +23,21 @@
             <div
               class="card block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
             >
+              <div data-th-replace="message::messagebox"></div>
+
               <h1 class="text-2xl font-semibold">Add New Contact</h1>
               <p class="text-gray-500">
                 This contact will be stored on cloud, you can direct email this
                 client from scm...
               </p>
 
-              <form action="" class="mt-8">
+              <form
+                action=""
+                class="mt-8"
+                data-th-action="@{'/user/contacts/add'}"
+                data-th-object="${contactForm}"
+                method="post"
+              >
                 <!-- name form -->
                 <div class="mb-3">
                   <label
@@ -37,19 +45,26 @@
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >Contact Name</label
                   >
-                  <div class="relative mb-6">
+                  <div class="relative mb-1">
                     <div
                       class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
                     >
                       <i class="fa-regular w-4 h-4 fa-user"></i>
                     </div>
                     <input
+                      data-th-field="*{name}"
                       type="text"
-                      id="input-group-1"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="name"
                     />
                   </div>
+                  <p
+                    class="text-red-500"
+                    data-th-if="${#fields.hasErrors('name')}"
+                    data-th-errors="*{name}"
+                  >
+                    Invalid Name
+                  </p>
                 </div>
 
                 <!-- email form -->
@@ -59,7 +74,7 @@
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >Contact Email</label
                   >
-                  <div class="relative mb-6">
+                  <div class="relative mb-1">
                     <div
                       class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
                     >
@@ -67,11 +82,18 @@
                     </div>
                     <input
                       type="text"
-                      id="input-group-1"
+                      data-th-field="*{email}"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="example@gmail.com"
                     />
                   </div>
+                  <p
+                    class="text-red-500"
+                    data-th-if="${#fields.hasErrors('email')}"
+                    data-th-errors="*{email}"
+                  >
+                    Invalid Name
+                  </p>
                 </div>
 
                 <!-- phone number  -->
@@ -81,19 +103,26 @@
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >Contact Phone</label
                   >
-                  <div class="relative mb-6">
+                  <div class="relative mb-1">
                     <div
                       class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
                     >
                       <i class="fa-solid w-4 h-4 fa-phone"></i>
                     </div>
                     <input
+                      data-th-field="*{phoneNumber}"
                       type="text"
-                      id="input-group-1"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="9823525525"
                     />
                   </div>
+                  <p
+                    class="text-red-500"
+                    data-th-if="${#fields.hasErrors('phoneNumber')}"
+                    data-th-errors="*{phoneNumber}"
+                  >
+                    Invalid Name
+                  </p>
                 </div>
 
                 <!-- address -->
@@ -105,11 +134,18 @@
                     >Contact Address</label
                   >
                   <textarea
-                    id="message"
+                    data-th-field="*{address}"
                     rows="4"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Address of the contact"
                   ></textarea>
+                  <p
+                    class="text-red-500"
+                    data-th-if="${#fields.hasErrors('address')}"
+                    data-th-errors="*{address}"
+                  >
+                    Invalid Name
+                  </p>
                 </div>
 
                 <!-- description -->
@@ -121,7 +157,7 @@
                     >Contact Description</label
                   >
                   <textarea
-                    id="message"
+                    data-th-field="*{description}"
                     rows="4"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Write about your contact"
@@ -140,8 +176,7 @@
                           <i class="fa-solid w-4 h-4 fa-earth-americas"></i>
                         </div>
                         <input
-                          type="text"
-                          id="input-group-1"
+                          data-th-field="*{websiteLink}"
                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="htt://learncodewithdurgesh.com/"
                         />
@@ -159,7 +194,7 @@
                         </div>
                         <input
                           type="text"
-                          id="input-group-1"
+                          data-th-field="*{linkedInLink}"
                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="htt://learncodewithdurgesh.com/"
                         />
@@ -186,9 +221,8 @@
 
                 <div class="flex items-center mb-3">
                   <input
-                    id="default-checkbox"
+                    data-th-field="*{favorite}"
                     type="checkbox"
-                    value=""
                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
