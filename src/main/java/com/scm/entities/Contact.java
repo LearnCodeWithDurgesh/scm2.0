@@ -33,6 +33,7 @@ public class Contact {
     private String websiteLink;
     private String linkedInLink;
     // private List<String> socialLinks=new ArrayList<>();
+    private String cloudinaryImagePublicId;
 
     @ManyToOne
     private User user;

@@ -40,6 +40,10 @@ public class ContactForm {
 
     private String linkedInLink;
 
-    private MultipartFile profileImage;
+    // annotation create karenge jo file validate
+    // size
+    // resolution
+
+    private MultipartFile contactImage;
 
 }

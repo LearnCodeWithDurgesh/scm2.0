@@ -1,5 +1,7 @@
 package com.scm.controllers;
 
+import java.util.*;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import com.scm.helpers.Helper;
 import com.scm.helpers.Message;
 import com.scm.helpers.MessageType;
 import com.scm.services.ContactService;
+import com.scm.services.ImageService;
 import com.scm.services.UserService;
 
 import jakarta.servlet.http.HttpSession;
@@ -25,8 +28,13 @@ import jakarta.validation.Valid;
 @RequestMapping("/user/contacts")
 public class ContactController {
 
+    private Logger logger = org.slf4j.LoggerFactory.getLogger(ContactController.class);
+
     @Autowired
     private ContactService contactService;
+
+    @Autowired
+    private ImageService imageService;
 
     @Autowired
     private UserService userService;
@@ -49,8 +57,10 @@ public class ContactController {
 
         // 1 validate form
 
-        // TODO: add validation logic here
         if (result.hasErrors()) {
+
+            result.getAllErrors().forEach(error -> logger.info(error.toString()));
+
             session.setAttribute("message", Message.builder()
                     .content("Please correct the following errors")
                     .type(MessageType.red)
@@ -63,6 +73,15 @@ public class ContactController {
 
         User user = userService.getUserByEmail(username);
         // 2 process the contact picture
+
+        // image process
+
+        // uplod karne ka code
+
+        String filename = UUID.randomUUID().toString();
+
+        String fileURL = imageService.uploadImage(contactForm.getContactImage(), filename);
+
         Contact contact = new Contact();
         contact.setName(contactForm.getName());
         contact.setFavorite(contactForm.isFavorite());
@@ -73,6 +92,8 @@ public class ContactController {
         contact.setUser(user);
         contact.setLinkedInLink(contactForm.getLinkedInLink());
         contact.setWebsiteLink(contactForm.getWebsiteLink());
+        contact.setPicture(fileURL);
+        contact.setCloudinaryImagePublicId(filename);
         contactService.save(contact);
         System.out.println(contactForm);
 
