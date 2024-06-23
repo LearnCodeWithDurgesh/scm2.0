@@ -15,5 +15,7 @@ public @interface ValidFile {
 
     Class<?>[] groups() default {};
 
+    boolean checkEmpty() default true;
+
     Class<? extends Payload>[] payload() default {};
 }
