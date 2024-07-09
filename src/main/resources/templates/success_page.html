@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+  <head>
+    <title>Home page</title>
+  </head>
+  <body>
+    <div id="content" class="text-center mt-5 md:w-1/2 mx-auto">
+      <div data-th-replace="message::messagebox"></div>
+      <a href="/login" class="bg-green-900 mt-2 text-white px-3 py-2 rounded">
+        Login
+      </a>
+    </div>
+    <script>
+      console.log("Home page");
+    </script>
+  </body>
+</html>
