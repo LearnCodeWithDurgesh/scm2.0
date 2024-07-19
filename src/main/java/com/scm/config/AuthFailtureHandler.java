@@ -25,7 +25,6 @@ public class AuthFailtureHandler implements AuthenticationFailureHandler {
         if (exception instanceof DisabledException) {
 
             // user is disabled
-
             HttpSession session = request.getSession();
             session.setAttribute("message",
                     Message.builder()

@@ -17,12 +17,20 @@
       </div>
 
       <div class="sm:pl-64 pt-20" style="height: 1000px">
-        <div class="flex justify-center flex-col items-center">
-          <h1 class="text-5xl">Welcome to Profile page</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Consequatur, ratione!
-          </p>
+        <div class="flex items-center justify-center md:pt-32 flex-col">
+          <!--  profie card -->
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-2xl w-full">
+            <div class="flex flex-col items-center">
+                <img data-th-src="@{${loggedInUser.profilePic}}" src="path/to/profilePic.jpg" alt="Profile Photo" class="w-44 h-44 rounded-full shadow-lg object-cover mb-4">
+                <h2 class="text-2xl font-semibold mb-2" data-th-text=${loggedInUser.name}>User Name</h2>
+                <p class="text-gray-600 mb-2" data-th-text="${loggedInUser.email}">user.email@example.com</p>
+                <p class="text-gray-600 mb-2" data-th-text="${loggedInUser.phoneNumber}">123-456-7890</p>
+                <p class="text-gray-600 mb-4 text-center" data-th-text="${loggedInUser.about}">About the user...</p>
+                <div class="w-full flex justify-between">
+                    <p class="text-sm text-gray-500">Email Verified: <span class="font-medium text-gray-700" id="email-verified" data-th-text="${loggedInUser.emailVerified ? 'YES':'NO'}">No</span></p>
+                    <p class="text-sm text-gray-500">Phone Verified: <span class="font-medium text-gray-700" id="phone-verified" data-th-text="${loggedInUser.phoneVerified ? 'YES':'NO'}">No</span></p>
+                </div>
+            </div>
         </div>
       </div>
     </div>

@@ -7,12 +7,21 @@
   <div
     class="h-full pt-16 px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800"
   >
-    <a href="https://flowbite.com/" class="flex items-center ps-2.5 mb-5">
+    <a
+      href="https://flowbite.com/"
+      class="flex flex-col items-center ps-2.5 mb-8"
+    >
       <img
+        onerror="this.onerror=null; this.src='https://flowbite.com/docs/images/logo.svg'"
+        data-th-src="@{${loggedInUser.profilePic}}"
         src="https://flowbite.com/docs/images/logo.svg"
-        class="h-6 me-3 sm:h-7"
+        class="h-16 me-3 sm:h-24 shadow-md rounded-full"
         alt="Flowbite Logo"
       />
+
+      <span class="text-gray-500" data-th-text="${loggedInUser.name}"
+        >Durgesh Kumar Tiwari</span
+      >
       <span
         class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
         >Welcome to SCM</span
@@ -102,7 +111,7 @@
               d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"
             />
           </svg>
-          <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
+          <span class="flex-1 ms-3 whitespace-nowrap">Direct Message</span>
         </a>
       </li>
       <li>
@@ -125,7 +134,7 @@
               d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
             />
           </svg>
-          <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+          <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
         </a>
       </li>
       <li>
@@ -150,7 +159,7 @@
               d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z"
             />
           </svg>
-          <span class="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
+          <span class="flex-1 ms-3 whitespace-nowrap">Feedback</span>
         </a>
       </li>
     </ul>
