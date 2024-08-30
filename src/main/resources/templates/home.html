@@ -1,21 +1,109 @@
 <!DOCTYPE html>
 <html
-  lang="en"
-  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+        lang="en"
+        th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
 >
-  <head>
-    <title>Home page</title>
-  </head>
-  <body>
-    <div id="content">
-      <h1>Welcome to home page</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
-        ratione!
-      </p>
+<head>
+  <title>Home page</title>
+</head>
+<body>
+<div id="content" class="border">
+  <!-- Banner Section -->
+  <section class="bg-blue-600 text-white py-20 animate__animated animate__fadeInDown">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">Welcome to Contact Manager</h2>
+      <p class="text-lg mb-8">Manage all your contacts effortlessly and securely in one place.</p>
+      <a href="#"
+         class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Get
+        Started</a>
     </div>
-    <script>
-      console.log("Home page");
-    </script>
-  </body>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-12 animate__animated animate__fadeInUp">Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-address-book text-blue-600 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Easy Contact Management</h3>
+          <p class="text-gray-600">Add, edit, and organize your contacts in a user-friendly interface.</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-lock text-blue-600 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Secure Storage</h3>
+          <p class="text-gray-600">Your data is protected with top-level encryption and security measures.</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <i class="fas fa-globe text-blue-600 text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">24/7 Access</h3>
+          <p class="text-gray-600">Access your contacts anytime, anywhere from any device.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="bg-blue-600 text-white py-20 animate__animated animate__fadeInUp">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Ready to Manage Your Contacts?</h2>
+      <p class="text-lg mb-8">Sign up today and experience the easiest way to manage your contacts.</p>
+      <a href="#"
+         class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Create
+        an Account</a>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-12 animate__animated animate__fadeInUp">What Our Users Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <p class="text-gray-600 italic">"Contact Manager has changed the way I organize my contacts. It's
+            fast, secure, and incredibly easy to use!"</p>
+          <h4 class="text-lg font-semibold mt-4">- John Doe</h4>
+        </div>
+        <div class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <p class="text-gray-600 italic">"A fantastic app with great features! I love the 24/7 access and
+            secure storage options."</p>
+          <h4 class="text-lg font-semibold mt-4">- Jane Smith</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section class="py-20   bg-gray-100 animate__animated animate__fadeInUp">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-12">Get in Touch</h2>
+      <form class="max-w-lg mx-auto">
+        <input type="text" placeholder="Your Name" class="w-full px-4 py-2 mb-4 border border-gray-300 rounded">
+        <input type="email" placeholder="Your Email"
+               class="w-full px-4 py-2 mb-4 border border-gray-300 rounded">
+        <textarea placeholder="Your Message"
+                  class="w-full px-4 py-2 mb-4 border border-gray-300 rounded"></textarea>
+        <button type="submit"
+                class="bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition duration-300">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Contact Manager. All rights reserved.</p>
+      <p>Follow us on <a href="#" class="text-blue-400">Facebook</a>, <a href="#"
+                                                                         class="text-blue-400">Twitter</a>, and <a
+              href="#" class="text-blue-400">Instagram</a>.</p>
+    </div>
+  </footer>
+</div>
+<script>
+  console.log("Home page");
+</script>
+</body>
 </html>
