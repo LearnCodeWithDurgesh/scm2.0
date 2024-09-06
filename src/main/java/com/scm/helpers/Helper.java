@@ -1,10 +1,17 @@
 package com.scm.helpers;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Helper {
+
+    @Value("${server.baseUrl}")
+    private String baseUrl;
 
     public static String getEmailOfLoggedInUser(Authentication authentication) {
 
@@ -41,11 +48,9 @@ public class Helper {
 
     }
 
-    public static String getLinkForEmailVerificatiton(String emailToken) {
+    public String getLinkForEmailVerificatiton(String emailToken) {
 
-        String link = "http://localhost:8081/auth/verify-email?token=" + emailToken;
-
-        return link;
+        return this.baseUrl + "/auth/verify-email?token=" + emailToken;
 
     }
 }
